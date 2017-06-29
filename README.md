@@ -83,3 +83,6 @@ npm run watcher
 然后，访问 [http://127.0.0.1:8086/debug?port=5858](http://127.0.0.1:8086/debug?port=5858) 即可打开一个类似javascript调试器的页面来对node层进行监听。
 
 之后，在ejs中使用console打印的任何log，或者node层发出的任何http接口请求都会在上述监听页面时时反馈出来。
+
+### 入门demo
+可下载案例demo快速入门[axletree-demo](https://github.com/kekobin/axletree-demo/tree/master).
