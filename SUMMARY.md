@@ -8,6 +8,6 @@
 * 前端工程
     * [功能解析](chapter2/section2.1.md)
 * 其他
-    * [内置功能](chapter3/section3.1.md)
+    * [模版应用说明](chapter3/section3.1.md)
     * [发布](chapter3/section3.2.md)
 
