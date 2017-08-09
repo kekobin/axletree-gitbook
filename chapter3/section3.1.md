@@ -1,12 +1,35 @@
-# 内置功能
+# 模版应用说明
 
-axletree server采用的是ejs模版引擎，当模版存在前后端复用需求时，内置的功能函数Util提供了复用模版的函数Template，具体使用如下:
+## 基本使用
+
+axletree中间层采用的是ejs模版，所以其用法比较简单:
 
 ```
-# Util.Template(项目名称, 模版路径)
-<script type="text/template" id="listTpl">
-  <%- Util.Template('axledemo', 'list/list.tpl') %>
-</script>
+<div id="container">
+	<%- include 'widget/header/header.tpl'%>
+</div>
 ```
 
-> 注:此处的list.tpl位于client/widget/list/下，因为最终它将编译到server/views/template目录下，因此只需传递组件目录名+具体模版名.
+或者
+```
+<div id="container">
+	<%- include('widget/header/header.tpl', {'title':'hello world'}) %>
+</div>
+```
+
+## 模版复用
+
+由于ejs模版语法跟underscore的基本一致，所以复用使用的模版引擎推荐用underscore:
+
+```
+	__inline('lib/underscore')
+```
+
+引入underscore后，在js逻辑里面即可如下复用相同的模版了，如这里复用的header.tpl：
+
+```
+	var tpl = __inline('../widget/header/header.tpl');
+	var compiled = _.template(tpl);
+	var html = compiled({title: 'hello reuse'});
+	$('#container').html(html)
+```
